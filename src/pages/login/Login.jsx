@@ -13,12 +13,14 @@ const Login = () => {
           <h1>Member Login</h1>
           <form action="">
             <input type="email" placeholder="email" className="input" />
+
             <input type="password" placeholder="password" className="input" />
+
             <button>Login</button>
           </form>
           <span>forgot password ?</span>
 
-          <span className="loginbtn">
+          <span className="regbtn">
             Create your account
             <ArrowRightAltIcon />
           </span>

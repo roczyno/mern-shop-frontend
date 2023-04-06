@@ -64,6 +64,7 @@
           border-radius: 20px;
           outline: none;
           border: none;
+          cursor: pointer;
         }
       }
 
@@ -73,6 +74,12 @@
         &:hover {
           color: green;
         }
+      }
+
+      .regbtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
