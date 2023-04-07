@@ -1,6 +1,5 @@
 import "./register.scss";
 import Img from "../../images/img-01.png";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";

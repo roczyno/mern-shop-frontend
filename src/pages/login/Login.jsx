@@ -1,6 +1,6 @@
 import "./login.scss";
 import Img from "../../images/img-01.png";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
