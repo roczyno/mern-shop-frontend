@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .left {
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    span {
+      cursor: pointer;
+    }
+  }
+}
