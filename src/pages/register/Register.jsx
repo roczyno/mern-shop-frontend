@@ -9,7 +9,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const [msg, setMsg] = useState("");
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -20,8 +20,8 @@ const Register = () => {
         email,
         password,
       });
-
-      res.data && navigate("/");
+      setMsg(res.data.message);
+      console.log(res);
     } catch (error) {
       if (
         error.response &&
@@ -65,6 +65,7 @@ const Register = () => {
             <button onClick={handleClick}>Register</button>
           </form>
           {error && <span style={{ color: "red" }}>{error}</span>}
+          {msg && <span style={{ color: "red" }}>{msg}</span>}
           <span className="loginbtn">
             <Link
               to="/login"
