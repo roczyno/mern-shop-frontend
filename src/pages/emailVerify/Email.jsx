@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
 import "./email.scss";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Email = () => {
-  const [validUrl, setValidUrl] = useState(false);
-  const params = useParams();
+  const [validUrl, setValidUrl] = useState(true);
+  const [error, setError] = useState("");
+  const param = useParams();
 
   useEffect(() => {
     const verifyEmailUrl = async () => {
       try {
-        url = `http://127.0.0.1:5173/api/auth/${params.id}/verify/${params.token}`;
+        const url = `http://localhost:5000/api/auth/${param.id}/verify/${param.token}`;
         const { data } = await axios.get(url);
         setValidUrl(true);
       } catch (error) {
-        console.log(error);
+        console.log(`the error is ${error}`);
+        setError(error.response.data.message);
         setValidUrl(false);
       }
     };
     verifyEmailUrl();
-  }, [params]);
+  }, [param]);
   return (
     <div className="email">
       {validUrl ? (
@@ -33,7 +37,10 @@ const Email = () => {
           </Link>
         </div>
       ) : (
-        <h1>404 not found</h1>
+        <>
+          <div>{error}</div>
+          <h1>404 not found</h1>
+        </>
       )}
     </div>
   );

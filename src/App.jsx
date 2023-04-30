@@ -11,7 +11,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/ap/auth/:id/verify/:token" element={<Email />} />
+        <Route path="api/auth/:id/verify/:token" element={<Email />} />
       </Routes>
     </div>
   );
