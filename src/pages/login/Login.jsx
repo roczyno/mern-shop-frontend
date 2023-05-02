@@ -62,7 +62,14 @@ const Login = () => {
             </button>
           </form>
           {error && <span style={{ color: "red" }}>{error}</span>}
-          <span>forgot password ?</span>
+          <span>
+            <Link
+              to="/forgot-password"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              forgot password ?
+            </Link>
+          </span>
 
           <span className="regbtn">
             <Link
