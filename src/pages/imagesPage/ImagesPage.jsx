@@ -1,5 +1,8 @@
 import "./images-page.scss";
 import Navbar from "../../components/navbar/Navbar";
+import SendIcon from "@mui/icons-material/Send";
+import DownloadIcon from "@mui/icons-material/Download";
+import { Images } from "../../data";
 
 const ImagesPage = () => {
   return (
@@ -10,90 +13,21 @@ const ImagesPage = () => {
         <label>Search</label>
       </div>
       <div className="imagesContainer">
-        <div className="image">
-          <img
-            src="https://media.istockphoto.com/id/1170648040/photo/beautiful-lady-overjoyed-by-warm-spring-breeze-dream-of-romantic-date-wear-cute-floral-dress.jpg?b=1&s=612x612&w=0&k=20&c=c-vNwZo56ZHhLj7twYPrP6hkAAvcpvBuBMRwbQnTVKY="
-            alt=""
-          />
-          <span>Title</span>
-          <p>desc</p>
-          <div className="actions">
-            <span>download</span>
-            <span>email</span>
+        {Images.map((item) => (
+          <div className="image" key={item.id}>
+            <img src={item.imageUrl} alt="" />
+            <span>{item.title}</span>
+            <p>{item.desc}</p>
+            <div className="actions">
+              <span>
+                <DownloadIcon className="download" />
+              </span>
+              <span>
+                <SendIcon className="send" />
+              </span>
+            </div>
           </div>
-        </div>
-        <div className="image">
-          <img
-            src="https://media.istockphoto.com/id/1170648040/photo/beautiful-lady-overjoyed-by-warm-spring-breeze-dream-of-romantic-date-wear-cute-floral-dress.jpg?b=1&s=612x612&w=0&k=20&c=c-vNwZo56ZHhLj7twYPrP6hkAAvcpvBuBMRwbQnTVKY="
-            alt=""
-          />
-          <span>Title</span>
-          <p>desc</p>
-          <div className="actions">
-            <span>download</span>
-            <span>email</span>
-          </div>
-        </div>
-        <div className="image">
-          <img
-            src="https://media.istockphoto.com/id/1170648040/photo/beautiful-lady-overjoyed-by-warm-spring-breeze-dream-of-romantic-date-wear-cute-floral-dress.jpg?b=1&s=612x612&w=0&k=20&c=c-vNwZo56ZHhLj7twYPrP6hkAAvcpvBuBMRwbQnTVKY="
-            alt=""
-          />
-          <span>Title</span>
-          <p>desc</p>
-          <div className="actions">
-            <span>download</span>
-            <span>email</span>
-          </div>
-        </div>
-        <div className="image">
-          <img
-            src="https://media.istockphoto.com/id/1170648040/photo/beautiful-lady-overjoyed-by-warm-spring-breeze-dream-of-romantic-date-wear-cute-floral-dress.jpg?b=1&s=612x612&w=0&k=20&c=c-vNwZo56ZHhLj7twYPrP6hkAAvcpvBuBMRwbQnTVKY="
-            alt=""
-          />
-          <span>Title</span>
-          <p>desc</p>
-          <div className="actions">
-            <span>download</span>
-            <span>email</span>
-          </div>
-        </div>
-        <div className="image">
-          <img
-            src="https://media.istockphoto.com/id/1170648040/photo/beautiful-lady-overjoyed-by-warm-spring-breeze-dream-of-romantic-date-wear-cute-floral-dress.jpg?b=1&s=612x612&w=0&k=20&c=c-vNwZo56ZHhLj7twYPrP6hkAAvcpvBuBMRwbQnTVKY="
-            alt=""
-          />
-          <span>Title</span>
-          <p>desc</p>
-          <div className="actions">
-            <span>download</span>
-            <span>email</span>
-          </div>
-        </div>
-        <div className="image">
-          <img
-            src="https://media.istockphoto.com/id/1170648040/photo/beautiful-lady-overjoyed-by-warm-spring-breeze-dream-of-romantic-date-wear-cute-floral-dress.jpg?b=1&s=612x612&w=0&k=20&c=c-vNwZo56ZHhLj7twYPrP6hkAAvcpvBuBMRwbQnTVKY="
-            alt=""
-          />
-          <span>Title</span>
-          <p>desc</p>
-          <div className="actions">
-            <span>download</span>
-            <span>email</span>
-          </div>
-        </div>
-        <div className="image">
-          <img
-            src="https://media.istockphoto.com/id/1170648040/photo/beautiful-lady-overjoyed-by-warm-spring-breeze-dream-of-romantic-date-wear-cute-floral-dress.jpg?b=1&s=612x612&w=0&k=20&c=c-vNwZo56ZHhLj7twYPrP6hkAAvcpvBuBMRwbQnTVKY="
-            alt=""
-          />
-          <span>Title</span>
-          <p>desc</p>
-          <div className="actions">
-            <span>download</span>
-            <span>email</span>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

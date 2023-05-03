@@ -6,6 +6,7 @@ import Email from "./pages/emailVerify/Email";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import PasswordReset from "./pages/passwordReset/PasswordReset";
 import ImagesPage from "./pages/imagesPage/ImagesPage";
+import SingleImage from "./pages/singleImage/SingleImage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/images" element={<ImagesPage />} />
+        <Route path="/image/:id" element={<SingleImage />} />
         <Route path="api/auth/:id/verify/:token" element={<Email />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
