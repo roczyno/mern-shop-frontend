@@ -11,14 +11,16 @@ import download from "downloadjs";
 const ImagesPage = () => {
   const [images, setImages] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isDownloading, setIsDownloading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
+  const PF = "http://localhost:5000/";
   useEffect(() => {
     const getAllImages = async () => {
       try {
         const res = await axios.get(
           `http://localhost:5000/api/images/find?search=${searchQuery}`
         );
+        console.log(res.data);
         setImages(res.data);
       } catch (error) {
         console.log(error);
@@ -35,6 +37,7 @@ const ImagesPage = () => {
           responseType: "blob",
         }
       );
+      console.log(res.data);
       const split = path.split("/");
       const filename = split[split.length - 1];
       setErrorMsg("");
@@ -43,6 +46,7 @@ const ImagesPage = () => {
       if (error.response && error.response.status === 400) {
         setErrorMsg("Error while downloading file. Try again later");
       }
+      console.log(error);
     }
   };
 
@@ -73,7 +77,7 @@ const ImagesPage = () => {
               style={{ textDecoration: "none", color: "inherit" }}
               className="link"
             >
-              <img src={item.imageUrl} alt="" />
+              <img src={PF + item.imageUrl} alt="" />
             </Link>
             <span>{item.title}</span>
             <p>{item.desc}</p>

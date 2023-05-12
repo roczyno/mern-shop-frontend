@@ -7,6 +7,8 @@ const SingleImage = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [image, setImage] = useState([]);
+  const PF = "http://localhost:5000/";
+
   useEffect(() => {
     const getImage = async () => {
       const res = await axios.get(
@@ -20,7 +22,7 @@ const SingleImage = () => {
   return (
     <div className="single-image">
       <div className="container">
-        <img src={image.imageUrl} alt="" />
+        <img src={PF + image.imageUrl} alt="" />
       </div>
     </div>
   );

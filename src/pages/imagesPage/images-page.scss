@@ -47,10 +47,11 @@
       cursor: pointer;
       color: lightgray;
       .link {
+        width: 100%;
         img {
-          height: 50px;
-
-          object-fit: cover;
+          height: 70px;
+          width: 100%;
+          object-fit: contain;
           overflow: hidden;
         }
       }
