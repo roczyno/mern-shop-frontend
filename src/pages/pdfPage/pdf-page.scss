@@ -48,11 +48,11 @@
       color: lightgray;
       .link {
         width: 100%;
-        iframe {
+        img {
           height: 70px;
           width: 100%;
-          object-fit: contain;
           overflow: hidden;
+          object-fit: cover;
         }
       }
 

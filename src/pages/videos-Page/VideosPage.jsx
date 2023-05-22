@@ -76,7 +76,7 @@ const VideosPage = () => {
               style={{ textDecoration: "none", color: "inherit" }}
               className="link"
             >
-              <video autoPlay progress controls src={PF + item.video} />
+              <video progress controls src={PF + item.video} />
             </Link>
             <span>{item.title}</span>
             <p>{item.desc}</p>
