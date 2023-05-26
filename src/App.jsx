@@ -12,6 +12,7 @@ import VideosPage from "./pages/videos-Page/VideosPage";
 import AudiosPage from "./pages/audios-page/AudiosPage";
 import PdfPage from "./pages/pdfPage/PdfPage";
 import SinglePdf from "./pages/single-pdf/SinglePdf";
+import SendEmail from "./components/SendEmail";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="api/auth/:id/verify/:token" element={<Email />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
+        <Route path="/sendEmail/:id" element={<SendEmail />} />
       </Routes>
     </div>
   );
