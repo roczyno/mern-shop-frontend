@@ -61,7 +61,10 @@ const Register = () => {
               className="input"
               onChange={(e) => setPassword(e.target.value)}
             />
-
+            <span style={{ color: "gray" }}>
+              Password must contain one upperCase letter, one symbol and should
+              be at least 8 characters long
+            </span>
             <button onClick={handleClick}>Register</button>
           </form>
           {error && <span style={{ color: "red" }}>{error}</span>}

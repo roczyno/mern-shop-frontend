@@ -32,7 +32,6 @@ const SingleVideo = () => {
           src={PF + video.video}
           alt=""
           controls
-          autoPlay
         ></video>
       </div>
     </div>

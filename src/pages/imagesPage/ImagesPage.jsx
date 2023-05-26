@@ -47,7 +47,6 @@ const ImagesPage = () => {
       const filename = split[split.length - 1];
       setErrorMsg("");
       const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
-      console.log(window.URL.createObjectURL(new Blob([res.data])));
       setDownloadLink(downloadUrl);
       return download(res.data, filename, mimetype);
     } catch (error) {

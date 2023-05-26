@@ -7,6 +7,35 @@
   background-position: center;
   background-size: contain;
 
+  form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 20px;
+
+    input {
+      padding: 10px;
+      &:focus {
+        outline: none;
+      }
+    }
+    textarea {
+      padding: 10px;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      outline: none;
+    }
+  }
+
   .searchContainer {
     display: flex;
     align-items: center;
