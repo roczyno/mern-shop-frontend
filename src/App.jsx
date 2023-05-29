@@ -42,14 +42,8 @@ function App() {
           path="api/auth/:id/verify/:token"
           element={user ? <Email /> : <Login />}
         />
-        <Route
-          path="/forgot-password"
-          element={user ? <ForgotPassword /> : <Login />}
-        />
-        <Route
-          path="/password-reset/:id/:token"
-          element={user ? <PasswordReset /> : <Login />}
-        />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route
           path="/sendEmail/:id"
           element={user ? <SendEmail /> : <Login />}

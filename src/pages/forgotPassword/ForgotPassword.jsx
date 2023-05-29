@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ForgotPassword.scss";
+import "./forgotPassword.scss";
 import axios from "axios";
 
 const ForgotPassword = () => {
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
         <h1>Forgot Password</h1>
         <input
           type="email"
-          placeholder="email"
+          placeholder="enter your email for password reset"
           className="input"
           onChange={(e) => setEmail(e.target.value)}
         />
