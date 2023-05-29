@@ -12,7 +12,6 @@ import VideosPage from "./pages/videos-Page/VideosPage";
 import AudiosPage from "./pages/audios-page/AudiosPage";
 import PdfPage from "./pages/pdfPage/PdfPage";
 import SinglePdf from "./pages/single-pdf/SinglePdf";
-import SendEmail from "./components/SendEmail";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext/AuthContext";
 
