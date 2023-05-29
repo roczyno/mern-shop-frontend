@@ -44,10 +44,6 @@ function App() {
         />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
-        <Route
-          path="/sendEmail/:id"
-          element={user ? <SendEmail /> : <Login />}
-        />
       </Routes>
     </div>
   );
