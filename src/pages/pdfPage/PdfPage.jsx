@@ -17,12 +17,12 @@ const PdfPage = () => {
   const [message, setMessage] = useState("");
   const [downloadLink, setDownloadLink] = useState("");
 
-  const PF = "http://localhost:5000/";
+  const PF = "https://file-server-api.onrender.com/";
   useEffect(() => {
     const getAllPdf = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/pdf/find?search=${searchQuery}`
+          `https://file-server-api.onrender.com/api/pdf/find?search=${searchQuery}`
         );
 
         setPdf(res.data);
@@ -36,7 +36,7 @@ const PdfPage = () => {
   const downloadFile = async (id, path, mimetype) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/pdf/download/${id}`,
+        `https://file-server-api.onrender.com/api/pdf/download/${id}`,
         {
           responseType: "blob",
         }
@@ -58,12 +58,15 @@ const PdfPage = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/email/send-email", {
-        recipient,
-        subject,
-        message,
-        downloadLink,
-      });
+      await axios.post(
+        "https://file-server-api.onrender.com/api/email/send-email",
+        {
+          recipient,
+          subject,
+          message,
+          downloadLink,
+        }
+      );
       alert("email sent successfully");
 
       // Reset form fields and download link

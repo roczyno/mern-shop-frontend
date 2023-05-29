@@ -15,7 +15,7 @@ const PasswordReset = () => {
     const verifyUrl = async () => {
       try {
         await axios.get(
-          `http://localhost:5000/api/auth/password-reset/${param.id}/${param.token}`
+          `https://file-server-api.onrender.com/api/auth/password-reset/${param.id}/${param.token}`
         );
         setValidUrl(true);
       } catch (error) {
@@ -29,7 +29,7 @@ const PasswordReset = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/auth/password-reset/${param.id}/${param.token}`,
+        `https://file-server-api.onrender.com/api/auth/password-reset/${param.id}/${param.token}`,
         { password }
       );
       setMsg(res.data.message);

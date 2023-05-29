@@ -7,12 +7,12 @@ const SingleImage = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [image, setImage] = useState([]);
-  const PF = "http://localhost:5000/";
+  const PF = "https://file-server-api.onrender.com/";
 
   useEffect(() => {
     const getImage = async () => {
       const res = await axios.get(
-        "http://localhost:5000/api/images/find/" + id
+        "https://file-server-api.onrender.com/api/images/find/" + id
       );
       setImage(res.data);
     };

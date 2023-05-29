@@ -18,12 +18,12 @@ const ImagesPage = () => {
   const [message, setMessage] = useState("");
   const [downloadLink, setDownloadLink] = useState("");
 
-  const PF = "http://localhost:5000/";
+  const PF = "https://file-server-api.onrender.com/";
   useEffect(() => {
     const getAllImages = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/images/find?search=${searchQuery}`
+          `https://file-server-api.onrender.com/api/images/find?search=${searchQuery}`
         );
 
         setImages(res.data);
@@ -37,7 +37,7 @@ const ImagesPage = () => {
   const downloadFile = async (id, path, mimetype) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/images/download/${id}`,
+        `https://file-server-api.onrender.com/api/images/download/${id}`,
         {
           responseType: "blob",
         }
@@ -60,12 +60,15 @@ const ImagesPage = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/email/send-email", {
-        recipient,
-        subject,
-        message,
-        downloadLink,
-      });
+      await axios.post(
+        "https://file-server-api.onrender.com/api/email/send-email",
+        {
+          recipient,
+          subject,
+          message,
+          downloadLink,
+        }
+      );
       alert("email sent successfully");
 
       // Reset form fields and download link

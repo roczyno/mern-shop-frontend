@@ -17,12 +17,12 @@ const VideosPage = () => {
   const [message, setMessage] = useState("");
   const [downloadLink, setDownloadLink] = useState("");
 
-  const PF = "http://localhost:5000/";
+  const PF = "https://file-server-api.onrender.com/";
   useEffect(() => {
     const getAllVideos = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/videos/find?search=${searchQuery}`
+          `https://file-server-api.onrender.com/api/videos/find?search=${searchQuery}`
         );
 
         setVideos(res.data);
@@ -36,7 +36,7 @@ const VideosPage = () => {
   const downloadFile = async (id, path, mimetype) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/videos/download/${id}`,
+        `https://file-server-api.onrender.com/api/videos/download/${id}`,
         {
           responseType: "blob",
         }
@@ -59,12 +59,15 @@ const VideosPage = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/email/send-email", {
-        recipient,
-        subject,
-        message,
-        downloadLink,
-      });
+      await axios.post(
+        "https://file-server-api.onrender.com/api/email/send-email",
+        {
+          recipient,
+          subject,
+          message,
+          downloadLink,
+        }
+      );
       alert("email sent successfully");
 
       // Reset form fields and download link

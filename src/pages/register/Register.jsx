@@ -15,11 +15,14 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        username,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://file-server-api.onrender.com/api/auth/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
       setMsg(res.data.message);
       console.log(res);
     } catch (error) {
