@@ -2,6 +2,7 @@ import "./images-page.scss";
 import Navbar from "../../components/navbar/Navbar";
 import SendIcon from "@mui/icons-material/Send";
 import DownloadIcon from "@mui/icons-material/Download";
+// import { Images } from "../../data";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

@@ -37,10 +37,7 @@ function App() {
           element={user ? <SingleVideo /> : <Login />}
         />
         <Route path="/pdf/:id" element={user ? <SinglePdf /> : <Login />} />
-        <Route
-          path="api/auth/:id/verify/:token"
-          element={user ? <Email /> : <Login />}
-        />
+        <Route path="api/auth/:id/verify/:token" element={<Email />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
       </Routes>
