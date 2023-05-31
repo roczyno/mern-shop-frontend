@@ -15,7 +15,8 @@ const SinglePdf = () => {
         "https://file-server-api.onrender.com/api/pdf/find/" + id,
         {
           headers: {
-            token: "Bearer " + localStorage.getItem("user").accessToken,
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         }
       );

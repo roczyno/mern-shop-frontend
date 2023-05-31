@@ -26,7 +26,9 @@ const ImagesPage = () => {
           `https://file-server-api.onrender.com/api/images/find?search=${searchQuery}`,
           {
             headers: {
-              token: "Bearer " + localStorage.getItem("user").accessToken,
+              token:
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
             },
           }
         );

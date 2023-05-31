@@ -15,7 +15,8 @@ const SingleImage = () => {
         "https://file-server-api.onrender.com/api/images/find/" + id,
         {
           headers: {
-            token: "Bearer " + localStorage.getItem("user").accessToken,
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         }
       );

@@ -25,7 +25,9 @@ const VideosPage = () => {
           `https://file-server-api.onrender.com/api/videos/find?search=${searchQuery}`,
           {
             headers: {
-              token: "Bearer " + localStorage.getItem("user").accessToken,
+              token:
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
             },
           }
         );

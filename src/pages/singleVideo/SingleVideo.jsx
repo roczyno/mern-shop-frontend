@@ -16,7 +16,9 @@ const SingleVideo = () => {
           "https://file-server-api.onrender.com/api/videos/find/" + id,
           {
             headers: {
-              token: "Bearer " + localStorage.getItem("user").accessToken,
+              token:
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
             },
           }
         );
