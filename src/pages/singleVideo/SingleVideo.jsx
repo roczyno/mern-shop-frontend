@@ -13,7 +13,12 @@ const SingleVideo = () => {
     try {
       const getVideo = async () => {
         const res = await axios.get(
-          "https://file-server-api.onrender.com/api/videos/find/" + id
+          "https://file-server-api.onrender.com/api/videos/find/" + id,
+          {
+            headers: {
+              token: "Bearer " + localStorage.getItem("user").accessToken,
+            },
+          }
         );
         setVideo(res.data);
       };

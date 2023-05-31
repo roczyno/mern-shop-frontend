@@ -22,7 +22,12 @@ const VideosPage = () => {
     const getAllAudios = async () => {
       try {
         const res = await axios.get(
-          `https://file-server-api.onrender.com/api/audios/find?search=${searchQuery}`
+          `https://file-server-api.onrender.com/api/audios/find?search=${searchQuery}`,
+          {
+            headers: {
+              token: "Bearer " + localStorage.getItem("user").accessToken,
+            },
+          }
         );
 
         setVideos(res.data);

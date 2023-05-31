@@ -12,7 +12,12 @@ const SingleImage = () => {
   useEffect(() => {
     const getImage = async () => {
       const res = await axios.get(
-        "https://file-server-api.onrender.com/api/images/find/" + id
+        "https://file-server-api.onrender.com/api/images/find/" + id,
+        {
+          headers: {
+            token: "Bearer " + localStorage.getItem("user").accessToken,
+          },
+        }
       );
       setImage(res.data);
     };
