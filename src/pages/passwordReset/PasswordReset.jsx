@@ -50,9 +50,9 @@ const PasswordReset = () => {
     <div className="password-reset">
       <>
         {validUrl ? (
-          <div>
+          <div className="container">
+            <h1>Add new Password</h1>
             <form action="">
-              <h1>Add new Password</h1>
               <input
                 type="password"
                 placeholder="password"
