@@ -22,14 +22,7 @@ const VideosPage = () => {
     const getAllVideos = async () => {
       try {
         const res = await axios.get(
-          `https://file-server-api.onrender.com/api/videos/find?search=${searchQuery}`,
-          {
-            headers: {
-              token:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
+          `https://file-server-api.onrender.com/api/videos/find?search=${searchQuery}`
         );
 
         setVideos(res.data);

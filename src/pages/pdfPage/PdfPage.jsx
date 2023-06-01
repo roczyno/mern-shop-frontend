@@ -22,14 +22,7 @@ const PdfPage = () => {
     const getAllPdf = async () => {
       try {
         const res = await axios.get(
-          `https://file-server-api.onrender.com/api/pdf/find?search=${searchQuery}`,
-          {
-            headers: {
-              token:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
+          `https://file-server-api.onrender.com/api/pdf/find?search=${searchQuery}`
         );
 
         setPdf(res.data);

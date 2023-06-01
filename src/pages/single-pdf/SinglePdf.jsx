@@ -12,13 +12,7 @@ const SinglePdf = () => {
   useEffect(() => {
     const getPdf = async () => {
       const res = await axios.get(
-        "https://file-server-api.onrender.com/api/pdf/find/" + id,
-        {
-          headers: {
-            token:
-              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-          },
-        }
+        "https://file-server-api.onrender.com/api/pdf/find/" + id
       );
       setPdf(res.data);
     };

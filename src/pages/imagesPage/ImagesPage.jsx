@@ -23,14 +23,7 @@ const ImagesPage = () => {
     const getAllImages = async () => {
       try {
         const res = await axios.get(
-          `https://file-server-api.onrender.com/api/images/find?search=${searchQuery}`,
-          {
-            headers: {
-              token:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
+          `https://file-server-api.onrender.com/api/images/find?search=${searchQuery}`
         );
 
         setImages(res.data);
