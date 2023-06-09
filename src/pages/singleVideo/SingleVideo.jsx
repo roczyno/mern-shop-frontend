@@ -7,13 +7,13 @@ const SingleVideo = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [video, setVideo] = useState([]);
-  const PF = "https://file-server-api.onrender.com/";
+  const PF = " http://localhost:5000/";
 
   useEffect(() => {
     try {
       const getVideo = async () => {
         const res = await axios.get(
-          "https://file-server-api.onrender.com/api/videos/find/" + id
+          " http://localhost:5000/api/videos/find/" + id
         );
         setVideo(res.data);
       };

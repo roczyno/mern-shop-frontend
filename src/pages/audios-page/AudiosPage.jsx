@@ -17,12 +17,12 @@ const VideosPage = () => {
   const [message, setMessage] = useState("");
   const [downloadLink, setDownloadLink] = useState("");
 
-  const PF = "https://file-server-api.onrender.com/";
+  const PF = " https://file-server-api.onrender.com/";
   useEffect(() => {
     const getAllAudios = async () => {
       try {
         const res = await axios.get(
-          `https://file-server-api.onrender.com/api/audios/find?search=${searchQuery}`
+          ` https://file-server-api.onrender.com/api/audios/find?search=${searchQuery}`
         );
 
         setVideos(res.data);
@@ -36,7 +36,7 @@ const VideosPage = () => {
   const downloadFile = async (id, path, mimetype) => {
     try {
       const res = await axios.get(
-        `https://file-server-api.onrender.com/api/audios/download/${id}`,
+        ` https://file-server-api.onrender.com/api/audios/download/${id}`,
         {
           responseType: "blob",
         }
@@ -60,7 +60,7 @@ const VideosPage = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://file-server-api.onrender.com/api/email/send-email",
+        " https://file-server-api.onrender.com/api/email/send-email",
         {
           recipient,
           subject,

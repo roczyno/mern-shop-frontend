@@ -5,14 +5,14 @@ import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 
 const SinglePdf = () => {
   const [pdf, setPdf] = useState([]);
-  const PF = "https://file-server-api.onrender.com/";
+  const PF = " https://file-server-api.onrender.com/";
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
   useEffect(() => {
     const getPdf = async () => {
       const res = await axios.get(
-        "https://file-server-api.onrender.com/api/pdf/find/" + id
+        " https://file-server-api.onrender.com/api/pdf/find/" + id
       );
       setPdf(res.data);
     };

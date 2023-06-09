@@ -16,7 +16,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "https://file-server-api.onrender.com/api/auth/register",
+        " https://file-server-api.onrender.com/api/auth/register",
         {
           username,
           email,
