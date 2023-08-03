@@ -60,8 +60,11 @@
   .pdfContainer {
     padding: 20px;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 
     .pdf {
       height: 150px;
@@ -74,6 +77,12 @@
       overflow: hidden;
       cursor: pointer;
       color: lightgray;
+      span {
+        font-size: 14px;
+      }
+      p {
+        font-style: italic;
+      }
       .link {
         width: 100%;
         img {

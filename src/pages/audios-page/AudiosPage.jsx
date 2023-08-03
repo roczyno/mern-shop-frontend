@@ -15,7 +15,7 @@ const VideosPage = () => {
   const [recipient, setRecipient] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const [downloadLink, setDownloadLink] = useState("");
+  const [selectedAudio, setSelectedAudio] = useState(null);
 
   const PF = " https://file-server-api.onrender.com/";
   useEffect(() => {
@@ -45,8 +45,7 @@ const VideosPage = () => {
       const split = path.split("/");
       const filename = split[split.length - 1];
       setErrorMsg("");
-      const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
-      setDownloadLink(downloadUrl);
+
       return download(res.data, filename, mimetype);
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -56,16 +55,16 @@ const VideosPage = () => {
     }
   };
 
-  const sendEmail = async (e) => {
+  const sendEmail = async (e, selectedAudio) => {
     e.preventDefault();
     try {
       await axios.post(
-        " https://file-server-api.onrender.com/api/email/send-email",
+        "https://file-server-api.onrender.com/api/email/send-email",
         {
           recipient,
           subject,
           message,
-          downloadLink,
+          attachment: selectedAudio.audio,
         }
       );
       alert("email sent successfully");
@@ -74,17 +73,17 @@ const VideosPage = () => {
       setRecipient("");
       setSubject("");
       setMessage("");
-      setDownloadLink("");
       setShowForms(false);
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <div className="audios">
       <Navbar />
       {showForms ? (
-        <form onSubmit={sendEmail}>
+        <form onSubmit={(e) => sendEmail(e, selectedAudio)}>
           <input
             type="email"
             placeholder="Recipient Email"
@@ -131,7 +130,12 @@ const VideosPage = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                   className="link"
                 >
-                  <audio progress controls src={PF + item.audio} />
+                  <audio
+                    progress
+                    controls
+                    controlsList="nodownload"
+                    src={PF + item.audio}
+                  />
                 </Link>
                 <span>{item.title}</span>
                 <p>{item.desc}</p>
@@ -148,6 +152,7 @@ const VideosPage = () => {
                     <SendIcon
                       className="send"
                       onClick={() => {
+                        setSelectedAudio(item);
                         setShowForms(true);
                       }}
                     />

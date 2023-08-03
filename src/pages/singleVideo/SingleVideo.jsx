@@ -7,13 +7,13 @@ const SingleVideo = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [video, setVideo] = useState([]);
-  const PF = " http://localhost:5000/";
+  const PF = " https://file-server-api.onrender.com/";
 
   useEffect(() => {
     try {
       const getVideo = async () => {
         const res = await axios.get(
-          " http://localhost:5000/api/videos/find/" + id
+          " https://file-server-api.onrender.com/api/videos/find/" + id
         );
         setVideo(res.data);
       };
@@ -32,6 +32,7 @@ const SingleVideo = () => {
           src={PF + video.video}
           alt=""
           controls
+          controlsList="nodownload "
         ></video>
       </div>
     </div>

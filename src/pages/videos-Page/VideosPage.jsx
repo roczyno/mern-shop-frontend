@@ -15,7 +15,7 @@ const VideosPage = () => {
   const [recipient, setRecipient] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const [downloadLink, setDownloadLink] = useState("");
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const PF = " https://file-server-api.onrender.com/";
   useEffect(() => {
@@ -45,8 +45,6 @@ const VideosPage = () => {
       const split = path.split("/");
       const filename = split[split.length - 1];
       setErrorMsg("");
-      const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
-      setDownloadLink(downloadUrl);
       return download(res.data, filename, mimetype);
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -56,16 +54,16 @@ const VideosPage = () => {
     }
   };
 
-  const sendEmail = async (e) => {
+  const sendEmail = async (e, selectedVideo) => {
     e.preventDefault();
     try {
       await axios.post(
-        " https://file-server-api.onrender.com/api/email/send-email",
+        "https://file-server-api.onrender.com/api/email/send-email",
         {
           recipient,
           subject,
           message,
-          downloadLink,
+          attachment: selectedVideo.video,
         }
       );
       alert("email sent successfully");
@@ -74,7 +72,6 @@ const VideosPage = () => {
       setRecipient("");
       setSubject("");
       setMessage("");
-      setDownloadLink("");
       setShowForms(false);
     } catch (error) {
       console.log(error);
@@ -85,7 +82,7 @@ const VideosPage = () => {
     <div className="videos">
       <Navbar />
       {showForms ? (
-        <form onSubmit={sendEmail}>
+        <form onSubmit={(e) => sendEmail(e, selectedVideo)}>
           <input
             type="email"
             placeholder="Recipient Email"
@@ -132,7 +129,12 @@ const VideosPage = () => {
                   style={{ textDecoration: "none", color: "inherit" }}
                   className="link"
                 >
-                  <video progress controls src={PF + item.video} />
+                  <video
+                    progress
+                    controls
+                    controlsList="nodownload"
+                    src={PF + item.video}
+                  />
                 </Link>
                 <span>{item.title}</span>
                 <p>{item.desc}</p>
@@ -149,6 +151,7 @@ const VideosPage = () => {
                     <SendIcon
                       className="send"
                       onClick={() => {
+                        setSelectedVideo(item);
                         setShowForms(true);
                       }}
                     />

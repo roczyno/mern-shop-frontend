@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Main = () => {
   return (
     <div className="main">
-      <p>Welcome to Hannah's Shop</p>
+      <p>Welcome to Lizzy's Shop</p>
       <div className="container">
         <Link to="/images" style={{ color: "inherit", textDecoration: "none" }}>
           <div className="main-item">

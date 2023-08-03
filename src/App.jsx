@@ -14,6 +14,8 @@ import PdfPage from "./pages/pdfPage/PdfPage";
 import SinglePdf from "./pages/single-pdf/SinglePdf";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext/AuthContext";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -40,6 +42,8 @@ function App() {
         <Route path="api/auth/:id/verify/:token" element={<Email />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );

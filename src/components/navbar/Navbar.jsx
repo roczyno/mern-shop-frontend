@@ -17,10 +17,13 @@ const Navbar = () => {
             Home
           </Link>
         </span>
-        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+        <Link to="/about" style={{ color: "inherit", textDecoration: "none" }}>
           About
         </Link>
-        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+        <Link
+          to="/contact"
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
           Contact
         </Link>
         {user ? (

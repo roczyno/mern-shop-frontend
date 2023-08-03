@@ -16,7 +16,7 @@ const ImagesPage = () => {
   const [recipient, setRecipient] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
-  const [downloadLink, setDownloadLink] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const PF = "https://file-server-api.onrender.com/";
   useEffect(() => {
@@ -25,7 +25,7 @@ const ImagesPage = () => {
         const res = await axios.get(
           `https://file-server-api.onrender.com/api/images/find?search=${searchQuery}`
         );
-
+        console.log(res.data);
         setImages(res.data);
       } catch (error) {
         console.log(error);
@@ -46,8 +46,7 @@ const ImagesPage = () => {
       const split = path.split("/");
       const filename = split[split.length - 1];
       setErrorMsg("");
-      const downloadUrl = window.URL.createObjectURL(new Blob([res.data]));
-      setDownloadLink(downloadUrl);
+
       return download(res.data, filename, mimetype);
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -57,7 +56,7 @@ const ImagesPage = () => {
     }
   };
 
-  const sendEmail = async (e) => {
+  const sendEmail = async (e, selectedImage) => {
     e.preventDefault();
     try {
       await axios.post(
@@ -66,16 +65,15 @@ const ImagesPage = () => {
           recipient,
           subject,
           message,
-          downloadLink,
+          attachment: selectedImage.imageUrl,
         }
       );
       alert("email sent successfully");
-
+      selectedImage.emailsSent++;
       // Reset form fields and download link
       setRecipient("");
       setSubject("");
       setMessage("");
-      setDownloadLink("");
       setShowForms(false);
     } catch (error) {
       console.log(error);
@@ -86,7 +84,7 @@ const ImagesPage = () => {
     <div className="images">
       <Navbar />
       {showForms ? (
-        <form onSubmit={sendEmail}>
+        <form onSubmit={(e) => sendEmail(e, selectedImage)}>
           <input
             type="email"
             placeholder="Recipient Email"
@@ -155,6 +153,7 @@ const ImagesPage = () => {
                     <SendIcon
                       className="send"
                       onClick={() => {
+                        setSelectedImage(item);
                         setShowForms(true);
                       }}
                     />
